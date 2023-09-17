@@ -51,7 +51,7 @@ def predict_image(array):
     input_image = Image.fromarray(array)
 
     # Load the model
-    model = load_efficientnet_model('/home/vedmani/Downloads/efficientnet_epoch=18_loss=0.0020_val_f1score=0.8993.pth')
+    model = load_efficientnet_model('efficientnet_epoch=18_loss=0.0020_val_f1score=0.8993.pth')
 
     # Transform the image
     transform = transforms.Compose([
