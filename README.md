@@ -84,6 +84,7 @@ python main.py --data_dir /path/to/data --model_dir /path/to/model --epochs 10 -
 This project uses the following tools and libraries:
 
 - [PyTorch](https://pytorch.org/): An open-source machine learning library for Python, used for building and training the model.
+- [timm (PyTorch Image Models)](https://github.com/rwightman/pytorch-image-models): A collection of image models, layers, utilities, optimizers, schedulers, data-loaders / augmentations, and reference training / validation scripts that aim to pull together a wide variety of SOTA models with ability to reproduce ImageNet training results.
 
 - [Weights & Biases](https://wandb.ai/site): A tool for tracking and visualizing machine learning experiments.
 
