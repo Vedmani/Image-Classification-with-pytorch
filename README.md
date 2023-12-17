@@ -1,6 +1,6 @@
 # Image-classification-with-pytorch
 
-This repository contains code for training a bird classification model using PyTorch and demonstrating the model using a Gradio app. The model is trained on a dataset of 25 different bird classes.
+This repository contains code for training (finetuning) a image classification model using PyTorch and demonstrating the model using a Gradio app. The model is trained on a dataset of 25 different bird classes.
 
 ## Files in the Repository
 
@@ -39,30 +39,60 @@ The model is trained on a dataset of 25 different bird classes. You can download
 
 ## Requirements
 
-This section will contain instructions for installing the required libraries. (TODO)
+To install the required libraries, you can use pip, a package installer for Python. You just need to run the following command in your terminal:
+
+```sh
+pip install -r requirements.txt
+```
 
 ## Weights & Biases Setup
 
-Weights & Biases (wandb) is a tool for tracking and visualizing machine learning experiments. This section will contain instructions for setting up wandb. (TODO)
+Weights & Biases (wandb) is a tool for tracking and visualizing machine learning experiments. To set up wandb, follow these steps:
+
+1. Install the wandb library using pip:
+
+```sh
+pip install wandb
+```
+
+2. Sign up for a free account on the [Weights & Biases website](https://wandb.ai/site).
+
+3. Run `wandb login` in your terminal and follow the instructions.
 
 ## Discord Webhook Setup
 
-Discord webhook is a simple way to automate sending messages to your Discord channels. This section will contain instructions for setting up a Discord webhook. (TODO)
+Discord webhook is a simple way to automate sending messages to your Discord channels. To set up a Discord webhook, follow these steps:
 
-## Usage
+1. Go to the settings of the Discord channel you want to send messages to.
 
-To start training, use the following command:
-```bash
+2. Click on 'Integrations', then 'Webhooks', and finally 'New Webhook'.
+
+3. Copy the Webhook URL and use it in [`discordutils.py`]("discordutils.py").
+
+## Model Training
+
+The model is trained using the `train_one_epoch` function from [`engine.py`](engine.py). This function takes in the model, dataloader, loss function, optimizer, scheduler, device, and metrics as arguments. It performs one epoch of training, calculates the loss, accuracy, and F1-score for each batch, and returns the average loss, accuracy, and F1-score for the epoch.
+
+The training process can be started by running the [`main.py`](main.py) script with the appropriate command-line arguments. For example:
+
+```sh
 python main.py --data_dir /path/to/data --model_dir /path/to/model --epochs 10 --batch_size 32 --learning_rate 0.01
 ```
-Replace /path/to/data and /path/to/model with the paths to your data and model directories, respectively. Adjust the other arguments as needed.
-To run the Gradio app, use the following command:
-```bash
-python app.py
-```
-## Model Training
-TODO
+
 ## Tools and References
-TODO
+
+This project uses the following tools and libraries:
+
+- [PyTorch](https://pytorch.org/): An open-source machine learning library for Python, used for building and training the model.
+
+- [Weights & Biases](https://wandb.ai/site): A tool for tracking and visualizing machine learning experiments.
+
+- [Discord Webhook](https://discord.com/developers/docs/resources/webhook): A simple way to automate sending messages to Discord channels.
+
+- [EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks](https://arxiv.org/abs/1905.11946): Mingxing Tan, Quoc V. Le. ICML 2019.
+
+For more information on how to use these tools, please refer to their official documentation.
+
 ## Project Status and Future Plans
-This project is currently undergoing active development. Your valuable feedback and suggestions are highly appreciated. I will continuously update the repository with detailed instructions on utilizing this code to train your personalized image classifier model. Moreover, as I continue to expand my knowledge, I will consistently incorporate additional features into this repository.
+
+This project is currently undergoing active development. Your valuable feedback and suggestions are highly appreciated. I will continuously update the repository with detailed instructions on utilizing this code to train your personalized image classifier model. Moreover, as I continue to expand my knowledge, I will consistently incorporate additional features into this repository. Future plans include adding more models, improving the training process, and providing more detailed documentation.
